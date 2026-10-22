@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://catalan-research.github.io/sitemap.xml

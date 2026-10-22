@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Catalan</title>
+<meta name="description" content="Catalan is a research programme about intelligent search: here is a space of possibilities, learn what is worth exploring.">
+<link rel="canonical" href="https://catalan-research.github.io/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Catalan">
+<meta property="og:title" content="Catalan">
+<meta property="og:description" content="A research programme about intelligent search. Here is a space of possibilities. Learn what is worth exploring.">
+<meta property="og:url" content="https://catalan-research.github.io/">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* The hub holds two lists: the questions the programme keeps open, and what has come back from them. */
+:root {
+  --bg: #F2F4F6;
+  --surface: #FFFFFF;
+  --ink: #14202B;
+  --muted: #5A6A77;
+  --line: #D6DDE3;
+  --accent: #C98500;
+  --display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E151B; --surface: #151F27; --ink: #E5EBF0; --muted: #94A4B1; --line: #283641; --accent: #F2B33D;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E151B; --surface: #151F27; --ink: #E5EBF0; --muted: #94A4B1; --line: #283641; --accent: #F2B33D;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--body); font-size: 16.5px; line-height: 1.68;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 56px 72px;
+}
+.wrap { max-width: 68ch; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--display); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+h1 { font-size: clamp(2.1rem, 5vw, 3rem); font-weight: 700; line-height: 1.1; }
+h2 { font-size: 1.15rem; font-weight: 600; margin-top: 2.6em; }
+h3 { font-size: 1.02rem; font-weight: 600; }
+.eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 10px; }
+.lede { font-size: 19px; line-height: 1.55; margin: 14px 0 0; }
+.framing {
+  font-family: var(--display); font-size: 17.5px; font-weight: 500; line-height: 1.45;
+  margin: 1.8em 0 0; padding-left: 16px; border-left: 2px solid var(--accent); color: var(--ink);
+}
+p { margin: 0.85em 0; }
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.8em 0 0; }
+
+ol.questions { list-style: none; counter-reset: q; margin: 1.2em 0 0; padding: 0; display: grid; gap: 14px; }
+ol.questions li { counter-increment: q; display: grid; grid-template-columns: 2.1em minmax(0, 1fr); gap: 0 10px; }
+ol.questions li::before {
+  content: counter(q); font-family: var(--mono); font-size: 12px; color: var(--accent);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent); border-radius: 6px;
+  height: 1.9em; display: grid; place-items: center;
+}
+ol.questions b { font-family: var(--display); font-weight: 600; }
+ol.questions span { color: var(--muted); }
+
+.finding { display: block; margin: 1.3em 0 0; padding: 20px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; text-decoration: none; }
+.finding:hover { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); color: inherit; }
+.finding .meta { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.finding .claim { font-family: var(--display); font-size: 1.22rem; font-weight: 600; line-height: 1.32; margin: 8px 0 0; }
+.finding .sub { color: var(--muted); font-size: 15px; margin: 8px 0 0; }
+.finding .go { color: var(--accent); font-size: 14.5px; margin: 12px 0 0; }
+.pending { margin: 1.1em 0 0; padding: 16px 20px; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); font-size: 15px; }
+
+dl.parts { display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 0 24px; margin: 1.2em 0 0; border-top: 1px solid var(--line); }
+dl.parts dt { font-family: var(--display); font-weight: 600; font-size: 15px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+dl.parts dd { margin: 0; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 15.5px; color: var(--muted); }
+footer { margin-top: 2.6em; color: var(--muted); font-size: 14px; }
+@media (max-width: 620px) {
+  dl.parts { grid-template-columns: minmax(0, 1fr); }
+  dl.parts dt { padding-bottom: 2px; border-bottom: 0; }
+  dl.parts dd { padding-top: 0; }
+  body { padding-block: 40px 56px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">Research programme</span>
+    <h1>Catalan</h1>
+    <p class="lede">A programme about <strong>intelligent search</strong>. It does not ask a system to solve a stated problem.</p>
+    <p class="framing">Here is a space of possibilities. Learn what is worth exploring.</p>
+  </header>
+
+  <p>Several properties can make a search intelligent in that sense. One is that the policy deciding what to try next is updated by what earlier attempts returned. Another is that the thing being searched for is an algorithm rather than a setting of parameters. The programme puts six questions and holds them open rather than assuming the answers.</p>
+
+  <h2>The questions</h2>
+  <ol class="questions">
+    <li><span><b>Adaptive search.</b> Whether a system can change its search policy while it is still solving the problem.</span></li>
+    <li><span><b>Compute allocation.</b> How to distribute a fixed budget across competing hypotheses.</span></li>
+    <li><span><b>Pruning.</b> Whether reasoning can rule out unpromising regions before paying to evaluate them.</span></li>
+    <li><span><b>Algorithm discovery.</b> Whether search can discover algorithms at all.</span></li>
+    <li><span><b>Transfer.</b> Whether search knowledge carries across unrelated problems.</span></li>
+    <li><span><b>Scaling.</b> How performance changes with reasoning, evaluation and search compute.</span></li>
+  </ol>
+
+  <h2>What has come back</h2>
+  <a class="finding" href="search-trees/">
+    <span class="meta">Log 1 · markets · in progress</span>
+    <p class="claim">A tree search over six thousand strategies spent most of its budget discovering a defect in its own scorer.</p>
+    <p class="sub">Sixteen language models wrote intraday strategies for the Nifty 50 between June and September 2026. The leaderboard it produced is void, and why it is void is the result. Twenty tree snapshots are open to explore alongside the log.</p>
+    <p class="go">Read the research log →</p>
+  </a>
+  <p class="pending">Log 2 will report the rebuilt validation: corrected fills, a holdout period no search has touched, and a random-entry baseline to price luck.</p>
+
+  <h2>What it runs on</h2>
+  <dl class="parts">
+    <dt>Pathfinder</dt>
+    <dd>The engine. A Monte Carlo tree search over programs, where a language model writes each candidate and a sandbox scores it. <a href="https://github.com/Amit-Prasad/pathfinder">Source</a>.</dd>
+    <dt>Momentus</dt>
+    <dd>The market application, and the subject of the first log. Private.</dd>
+  </dl>
+
+  <hr>
+  <footer>
+    <p>Prior work this programme reads against: <a href="https://arxiv.org/abs/2509.06503">ERA, Aygün et al., arXiv:2509.06503</a>.</p>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Nothing here</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+:root { --bg:#F2F4F6; --ink:#14202B; --muted:#5A6A77; --line:#D6DDE3; --accent:#C98500; color-scheme: light; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg:#0E151B; --ink:#E5EBF0; --muted:#94A4B1; --line:#283641; --accent:#F2B33D; color-scheme: dark; } }
+:root[data-theme="dark"] { --bg:#0E151B; --ink:#E5EBF0; --muted:#94A4B1; --line:#283641; --accent:#F2B33D; color-scheme: dark; }
+body { margin:0; background:var(--bg); color:var(--ink); font:400 16.5px/1.6 "IBM Plex Sans", system-ui, sans-serif;
+  min-height:100svh; display:grid; place-content:center; text-align:center;
+  padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px)); padding-block:48px; }
+.code { font-family:"IBM Plex Mono", ui-monospace, monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+h1 { font-family:"Bricolage Grotesque", system-ui, sans-serif; font-weight:700; font-size:clamp(1.6rem,4vw,2.2rem); margin:.4em 0 0; }
+p { color:var(--muted); margin:.7em 0 1.4em; }
+a { color:inherit; text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px; }
+a:hover { color:var(--accent); text-decoration-color:var(--accent); }
+</style>
+</head>
+<body>
+  <main>
+    <span class="code">404</span>
+    <h1>No page at this address</h1>
+    <p>The search went somewhere that does not exist. An apt failure, in the circumstances.</p>
+    <a href="/">Back to Catalan</a>
+  </main>
+</body>
+</html>
