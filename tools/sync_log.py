@@ -13,7 +13,7 @@ import re
 import sys
 from pathlib import Path
 
-SITE = "https://catalan-research.github.io"
+SITE = "https://amit-prasad.github.io/catalan-research"
 MARK_OPEN = "<!-- site:head -->"
 MARK_CLOSE = "<!-- /site:head -->"
 
